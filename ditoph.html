@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DITO SIM - Exclusive Free Data Offer</title>
+    <style>
+        /* Main Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Prank Page Styles */
+        .prank-page {
+            background-color: #e60012;
+            color: white;
+            text-align: center;
+            display: block;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .offer-card {
+            background-color: white;
+            color: #333;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #ffcc00;
+            font-size: 2.5em;
+        }
+        
+        .highlight {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e60012;
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin: 25px 0;
+        }
+        
+        input[type="tel"], input[type="password"] {
+            padding: 15px;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid #e60012;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+        
+        button {
+            background-color: #e60012;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #c5000f;
+        }
+        
+        .disclaimer {
+            font-size: 0.8em;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        #notification {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 100;
+            max-width: 80%;
+        }
+        
+        .close-btn {
+            margin-top: 20px;
+            background-color: #e60012;
+        }
+        
+        .admin-link {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8em;
+        }
+        
+        /* Admin Panel Styles */
+        .admin-page {
+            display: none;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+        
+        .admin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .admin-page h1 {
+            color: #e60012;
+            text-align: center;
+        }
+        
+        .login-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #e60012;
+            color: white;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .stats {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #e60012;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        #loginError {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Prank Page -->
+    <div class="prank-page" id="prankPage">
+        <div class="container">
+            <img src="https://www.dito.ph/wp-content/uploads/2020/12/dito-logo.png" alt="DITO Logo" class="logo" onerror="this.src='https://via.placeholder.com/150x50?text=DITO+LOGO'">
+            <h1>EXCLUSIVE FREE DATA OFFER!</h1>
+            <p>Limited time only for DITO subscribers</p>
+            
+            <div class="offer-card">
+                <h2>🎉 10GB FREE DATA FOR 30 DAYS 🎉</h2>
+                <p>As part of our anniversary celebration, we're giving away free data to selected users!</p>
+                
+                <div class="highlight">
+                    CLAIM YOUR 10GB NOW!
+                </div>
+                
+                <div class="form-group">
+                    <p>Enter your DITO mobile number below:</p>
+                    <input type="tel" id="phoneNumber" placeholder="09XXXXXXXXX" pattern="[0-9]{11}" required>
+                </div>
+                
+                <button id="submitBtn">CLAIM FREE DATA</button>
+                
+                <p><small>Offer valid until supplies last. DITO subscribers only.</small></p>
+            </div>
+            
+            <div class="disclaimer">
+                This is a parody website not affiliated with DITO. No real data will be given. 
+                By entering your number, you consent to this prank. Numbers are stored temporarily 
+                for joke purposes only and will not be shared.
+            </div>
+        </div>
+        
+        <div id="notification">
+            <h2>GOTCHA! 🤣</h2>
+            <p>Your number <span id="displayNumber"></span> has been noted!</p>
+            <p>This was just a prank - no free data will be given.</p>
+            <p>Thanks for playing along!</p>
+            <button class="close-btn" id="closeBtn">Close</button>
+        </div>
+        
+        <button class="admin-link" id="adminLink">Admin Login</button>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-page" id="adminPage">
+        <div class="admin-container">
+            <div id="loginForm">
+                <h1>Admin Login</h1>
+                <div class="login-form">
+                    <input type="password" id="adminPassword" placeholder="Enter admin password">
+                    <button onclick="checkPassword()">Login</button>
+                    <p id="loginError"></p>
+                </div>
+            </div>
+            
+            <div id="adminPanel" style="display:none;">
+                <h1>DITO Prank Admin Panel</h1>
+                
+                <div class="stats">
+                    <h2>Statistics</h2>
+                    <p>Total Pranked Numbers: <span id="totalPranked">0</span></p>
+                    <p>First Prank: <span id="firstPrank">None</span></p>
+                    <p>Last Prank: <span id="lastPrank">None</span></p>
+                </div>
+                
+                <h2>Pranked Numbers</h2>
+                <div style="max-height: 500px; overflow-y: auto;">
+                    <table id="numbersTable">
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="numbersList"></tbody>
+                    </table>
+                </div>
+                
+                <button class="back-btn" id="backBtn">Back to Main Page</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - CHANGE THIS PASSWORD!
+        const ADMIN_PASSWORD = "DitoPrank2023";
+        
+        // DOM Elements
+        const prankPage = document.getElementById('prankPage');
+        const adminPage = document.getElementById('adminPage');
+        const adminLink = document.getElementById('adminLink');
+        const backBtn = document.getElementById('backBtn');
+        const phoneNumberInput = document.getElementById('phoneNumber');
+        const submitBtn = document.getElementById('submitBtn');
+        const notification = document.getElementById('notification');
+        const displayNumber = document.getElementById('displayNumber');
+        const closeBtn = document.getElementById('closeBtn');
+        const loginForm = document.getElementById('loginForm');
+        const adminPanel = document.getElementById('adminPanel');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const loginError = document.getElementById('loginError');
+        const totalPranked = document.getElementById('totalPranked');
+        const firstPrank = document.getElementById('firstPrank');
+        const lastPrank = document.getElementById('lastPrank');
+        const numbersList = document.getElementById('numbersList');
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check URL for admin page
+            if (window.location.hash === '#admin') {
+                showAdminPage();
+            }
+        });
+        
+        // Main prank functionality
+        submitBtn.addEventListener('click', function() {
+            const phoneNumber = phoneNumberInput.value.trim();
+            
+            if (/^09[0-9]{9}$/.test(phoneNumber)) {
+                // Save to localStorage
+                const savedNumbers = JSON.parse(localStorage.getItem('ditoPrankNumbers') || '[]');
+                const newEntry = {
+                    number: phoneNumber,
+                    timestamp: new Date().toISOString()
+                };
+                const updatedNumbers = [...savedNumbers, newEntry];
+                localStorage.setItem('ditoPrankNumbers', JSON.stringify(updatedNumbers));
+                
+                // Show notification
+                displayNumber.textContent = phoneNumber;
+                notification.style.display = 'block';
+            } else {
+                alert('Please enter a valid 11-digit DITO number starting with 09');
+            }
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            notification.style.display = 'none';
+            phoneNumberInput.value = '';
+        });
+        
+        // Admin link click
+        adminLink.addEventListener('click', function() {
+            showAdminPage();
+        });
+        
+        // Back button click
+        backBtn.addEventListener('click', function() {
+            showPrankPage();
+        });
+        
+        // Check admin password
+        function checkPassword() {
+            const enteredPassword = adminPasswordInput.value;
+            
+            if (enteredPassword === ADMIN_PASSWORD) {
+                loginForm.style.display = 'none';
+                adminPanel.style.display = 'block';
+                loadPrankedNumbers();
+            } else {
+                loginError.textContent = "Incorrect password!";
+            }
+        }
+        
+        // Load pranked numbers
+        function loadPrankedNumbers() {
+            const savedNumbers = JSON.parse(localStorage.getItem('ditoPrankNumbers') || '[]');
+            
+            totalPranked.textContent = savedNumbers.length;
+            
+            if (savedNumbers.length > 0) {
+                firstPrank.textContent = formatDate(savedNumbers[0].timestamp);
+                lastPrank.textContent = formatDate(savedNumbers[savedNumbers.length - 1].timestamp);
+                
+                // Display numbers (newest first)
+                numbersList.innerHTML = '';
+                savedNumbers.slice().reverse().forEach(entry => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${entry.number}</td>
+                        <td>${formatDate(entry.timestamp)}</td>
+                    `;
+                    numbersList.appendChild(row);
+                });
+            }
+        }
+        
+        // Format date
+        function formatDate(isoString) {
+            const date = new Date(isoString);
+            return date.toLocaleString();
+        }
+        
+        // Show admin page
+        function showAdminPage() {
+            prankPage.style.display = 'none';
+            adminPage.style.display = 'block';
+            window.location.hash = 'admin';
+            adminPasswordInput.value = '';
+            loginError.textContent = '';
+            loginForm.style.display = 'block';
+            adminPanel.style.display = 'none';
+        }
+        
+        // Show prank page
+        function showPrankPage() {
+            prankPage.style.display = 'block';
+            adminPage.style.display = 'none';
+            window.location.hash = '';
+        }
+    </script>
+</body>
+</html>
